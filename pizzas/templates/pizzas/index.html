@@ -2,10 +2,9 @@
 
 {% block content %}
 <div class="jumbotron">
-    <h1 class="display-3">The best pizza west of the mississippi!</h1>
+    <p>
+        {% load static %} <img src="{% static 'DjangosPizzeria.png' %}" width='870' height='500' alt="home" />
+    </p>
 
-    <picture>
-        <img src="DjangosPizzeria.png" style="width:auto;">
-    </picture>
 </div>
 {% endblock content %}

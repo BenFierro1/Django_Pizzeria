@@ -1,8 +1,8 @@
 #
 
 from django.urls import path
-
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 app_name = 'pizzas'
 
@@ -12,5 +12,6 @@ urlpatterns = [
     path('pizzas/<int:pizza_id>/', views.pizza,name='pizza'),
     path('new_review/<int:pizza_id>/',views.new_review,name='new_review'),
     
-
     ]
+
+urlpatterns += staticfiles_urlpatterns()

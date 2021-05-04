@@ -12,7 +12,6 @@
 
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-
 </head>
 
 <body>
@@ -36,7 +35,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'pizzas:pizzas' %}">Pizza</a>
                 </li>
-
                 {% if user.is_authenticated %}
 
                 <li class="nav-item">
