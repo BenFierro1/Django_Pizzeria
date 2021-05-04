@@ -1,0 +1,34 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<p>Pizza: {{ pizza }}</p>
+<p></p>
+<p>Toppings:</p>
+
+<ul>
+    {% for topping in toppings %}
+
+    <li>
+
+        <p>{{ topping }}</p>
+        <p>{{ topping.text|linebreaks }}</p>
+
+
+    </li>
+    {% empty %}
+    <li>There are no toppings for this pizza yet.</li>
+    {% endfor %}
+
+    {% for review in reviews %}
+    <p>{{ review }}</p>
+    <p>{{ review.text|linebreaks }}</p>
+
+    {% endfor %}
+</ul>
+
+<p>
+    <a href="{% url 'pizzas:new_review' pizza.id %}">Add new review</a>
+</p>
+
+{% endblock content %}
