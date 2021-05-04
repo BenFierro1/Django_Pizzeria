@@ -14,16 +14,22 @@
         <p>{{ topping }}</p>
         <p>{{ topping.text|linebreaks }}</p>
 
-
     </li>
     {% empty %}
     <li>There are no toppings for this pizza yet.</li>
     {% endfor %}
+</ul>
 
+<p>Pizza Reviews:</p>
+<ul>
     {% for review in reviews %}
-    <p>{{ review }}</p>
-    <p>{{ review.text|linebreaks }}</p>
+    <li>
 
+        <p>{{ review.text|linebreaks }}</p>
+
+    </li>
+    {% empty %}
+    <li> </li>
     {% endfor %}
 </ul>
 

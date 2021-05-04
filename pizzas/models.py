@@ -18,6 +18,7 @@ class Topping(models.Model):
     def __str__(self):
         return f"{self.name[:50]}"
 
+
 class Review(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     text = models.TextField()
@@ -25,5 +26,4 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.text[:50]}..."
-
 

@@ -17,9 +17,11 @@ def pizzas(request):
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     toppings = pizza.topping_set.order_by('-date_added')
-    context = {'pizza':pizza, 'toppings':toppings}
+    reviews = pizza.review_set.order_by('-date_added')
+    context = {'pizza':pizza, 'toppings':toppings, 'reviews':reviews}
     return render(request, 'pizzas/pizza.html', context)
 
+@login_required
 def new_review(request,pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     if request.method != 'POST':
@@ -31,7 +33,6 @@ def new_review(request,pizza_id):
             new_review = form.save(commit=False)
             new_review.pizza = pizza
             new_review.save()
-            form.save()
             return redirect('pizzas:pizza',pizza_id=pizza_id)
     context = {'form': form, 'pizza':pizza}
     return render(request, 'pizzas/new_review.html', context)

@@ -17,8 +17,10 @@ p = Pizza.objects.get(id=1)
 print(p)
 topping = p.topping_set.all()
 print(topping)
-review = p.review_set.all()
-print(review)
+reviews = p.review_set.all()
+
+for review in reviews:
+    print(review)
 
 from django.contrib.auth.models import User
 
