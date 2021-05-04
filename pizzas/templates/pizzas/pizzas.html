@@ -3,16 +3,21 @@
 {% block content %}
 
 <p>Pizzas</p>
-
+<p>
+    {% load static %} <img src="{% static 'HawaiianPizza.png' %}" width='400' height='400' alt="home" />
+</p>
 <ul>
     {% for pizza in pizzas %}
 
     <li>
         <a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a>
     </li>
+
     {% empty %}
     <li>No pizzas available.</li>
     {% endfor %}
 </ul>
-
+<p>
+    {% load static %} <img src="{% static 'MeatPizza.png' %}" width='400' height='400' alt="home" />
+</p>
 {% endblock content %}
